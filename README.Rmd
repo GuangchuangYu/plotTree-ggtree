@@ -50,6 +50,10 @@ head(bar_data)
 
 
 library(ggtree)
+
+info <- read.csv("info.csv")
+tree <- read.tree("tree.nwk")
+
 p <- ggtree(tree) %<+% info + geom_tippoint(aes(color=location))
 
 alnplot(p, panel="SNP", data=snp_data, geom=geom_point, mapping=aes(x=pos), pch='|', color="firebrick") %>%

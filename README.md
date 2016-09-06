@@ -70,7 +70,11 @@ Plot tree with data
     ## 6 373_Cameroun_1973              10
 
     library(ggtree)
-    p <- ggtree(tree) %<+% info + geom_tippoint(aes(color=location))
+	
+	info <- read.csv("info.csv")
+	tree <- read.tree("tree.nwk")
+    
+	p <- ggtree(tree) %<+% info + geom_tippoint(aes(color=location))
 
     alnplot(p, panel="SNP", data=snp_data, geom=geom_point, mapping=aes(x=pos), pch='|', color="firebrick") %>%
         alnplot("BAR", bar_data, geom_segment, aes(x=0, xend=dummy_bar_value, y=y, yend=y)) + theme_tree2()
