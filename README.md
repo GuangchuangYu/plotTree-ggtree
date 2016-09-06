@@ -76,7 +76,7 @@ Plot tree with data
     
 	p <- ggtree(tree) %<+% info + geom_tippoint(aes(color=location))
 
-    alnplot(p, panel="SNP", data=snp_data, geom=geom_point, mapping=aes(x=pos), pch='|', color="firebrick") %>%
-        alnplot("BAR", bar_data, geom_segment, aes(x=0, xend=dummy_bar_value, y=y, yend=y)) + theme_tree2()
+    facet_plot(p, panel="SNP", data=snp_data, geom=geom_point, mapping=aes(x=pos), pch='|', color="firebrick") %>%
+        facet_plot("BAR", bar_data, geom_segment, aes(x=0, xend=dummy_bar_value, y=y, yend=y)) + theme_tree2()
 
 ![](README_files/figure-markdown_strict/unnamed-chunk-4-1.png)
